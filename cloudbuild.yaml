@@ -1,0 +1,19 @@
+steps:
+  - name: 'gcr.io/cloud-builders/git'
+    entrypoint: 'git'
+    args: ['clone', 'https://github.com/AnupDudhe/studentapp-ui.git']
+
+  - name: 'gcr.io/cloud-builders/mvn'
+    dir: 'studentapp-ui'
+    args: ['clean', 'package']
+    env:
+      - 'JAVA_VERSION=11'
+
+artifacts:
+  objects:
+    location: 'gs://YOUR-BUCKET-NAME/artifacts/'
+    paths:
+      - 'studentapp-ui/target/*.war'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
