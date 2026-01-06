@@ -7,7 +7,11 @@ apt install -y curl unzip maven
 
 apt install -y openjdk-21-jre-headless
 
-apt install -y openjdk-11-jre-headless
+apt install -y openjdk-17-jdk
+
+apt install -y mariadb-server
+
+apt install -y npm nodejs
 
 cd /opt
 curl -L -O https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.113/bin/apache-tomcat-9.0.113.zip
